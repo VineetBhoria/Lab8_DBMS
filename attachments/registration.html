@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title>User Registration Form</title>
+
+	<script>
+		function validateForm() {
+			// Email validation
+			var email = document.forms["registrationForm"]["email"].value;
+			var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			if (!emailRegex.test(email)) {
+				alert("Please enter a valid email address");
+				return false;
+			}
+			
+			// Password strength validation
+			var password = document.forms["registrationForm"]["password"].value;
+			var passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+			if (!passwordRegex.test(password)) {
+				alert("Password must be at least 8 characters long and contain at least one letter and one number");
+				return false;
+			}
+			
+			// Confirm password matching
+			var confirm_password = document.forms["registrationForm"]["confirm_password"].value;
+			if (password != confirm_password) {
+				alert("Passwords do not match");
+				return false;
+			}
+		}
+	</script>
+
+</head>
+
+<body bgcolor='red'>
+
+	<h1>User Registration Form</h1>
+
+	<form name="registrationForm" action="register.php" method="post" onsubmit="return validateForm()">
+	
+		<label for="email">Email:</label>
+
+		<input type="email" id="email" name="email" required><br><br>
+
+		<label for="first_name">First Name:</label>
+
+		<input type="text" id="first_name" name="first_name" required><br><br>
+
+		<label for="last_name">Last Name:</label>
+
+		<input type="text" id="last_name" name="last_name" required><br><br>
+
+
+		<label for="password">Password:</label>
+
+		<input type="password" id="password" name="password" required><br><br>
+
+		<label for="confirm_password">Confirm Password:</label>
+
+		<input type="password" id="confirm_password" name="confirm_password" required><br><br>
+
+		<input type="submit" name="submit" value="Register">
+
+	</form>
+
+</body>
+
+</html>
+

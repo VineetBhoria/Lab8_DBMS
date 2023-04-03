@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome</title>
+</head>
+<body>
+          
+
+	<h2>Welcome <?php echo $_SESSION['first_name'] . " " . $_SESSION['last_name']; ?></h2>
+	<br>
+	<a href="update.html">Update Information</a>
+	<br><br>
+	<a href="info.php">View User Information</a>
+	<br><br>
+	
+	
+	</form>
+	
+	<a href="logout.php">Logout</a>
+	<br><br>
+	
+	<form method="post" action="delete.php">
+		<input type="submit" value="Delete Account">
+	</form>
+</body>
+</html>
+
